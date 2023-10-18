@@ -1,6 +1,6 @@
 # nestjs
- Nest JS task for redacre
- use docker command to run the project 
+ Nest JS task for redacre<br>
+ use docker commands to run the project 
 
  docker compose up
 
