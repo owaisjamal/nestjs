@@ -1,0 +1,45 @@
+version: "3.7"
+services:
+  mysql1:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: app1_db
+    networks:
+      - nestjs_nestjs_default
+    ports:
+      - "3307:3306" # Map the MySQL1 container to port 3306 on the host
+  rabbitmq:
+    image: rabbitmq:latest
+    networks:
+      - nestjs_nestjs_default
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+  app1:
+    build:
+      context: ./app1
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mysql1
+      - rabbitmq
+    networks:
+      - nestjs_nestjs_default
+    container_name: nestjs-app1-1
+  app2:
+    build:
+      context: ./app2
+    ports:
+      - "3002:3002"
+    depends_on:
+      - mysql1
+      - rabbitmq
+    networks:
+      - nestjs_nestjs_default
+    container_name: nestjs-app2-1
+
+# Define the network
+networks:
+  nestjs_nestjs_default:
+    driver: bridge
