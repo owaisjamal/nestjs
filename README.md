@@ -6,7 +6,7 @@
 
  you can also run individual containers
 
- docker compose up mysql1
- docker compose up rabbitmq
- docker compose up app1
- docker compose up app2
+ docker compose up mysql1 <br>
+ docker compose up rabbitmq<br>
+ docker compose up app1<br>
+ docker compose up app2<br>
