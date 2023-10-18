@@ -8,5 +8,5 @@
 
  docker compose up mysql1
  docker compose up rabbitmq
-   docker compose up app1
-   docker compose up app2
+ docker compose up app1
+ docker compose up app2
